@@ -52,8 +52,7 @@ module.exports = grammar({
     ),
 
     var_definition: $ => seq(
-      $._perem,
-      //$._var_keyword,
+      $._var_keyword,
       sepBy(',', $.identifier),
       optional($.export_modifier),
       ';',
@@ -79,7 +78,7 @@ module.exports = grammar({
 
     parameters: $ => seq(
       '(',
-      sepBy(',', seq($.parameter)),
+      sepBy(',', optional($.parameter)),
       ')'
     ),
 
@@ -117,7 +116,8 @@ module.exports = grammar({
     _expression: $ => seq(
       choice(
         $.identifier,
-        $.number
+        $.number,
+        $.undefined,
         // TODO: other kinds of expressions
       ),
       optional(';'),
@@ -133,463 +133,183 @@ module.exports = grammar({
     _type: $ => choice(
 
     ),
-
-    _perem: $ => choice(
-      /Перем/iu,
-      /var/i
-    ),
     
     // Section - Keywords
 
     _if_keyword: $ => choice(
-      seq(
-        choice('Е', 'е'),
-        choice('С', 'с'),
-        choice('Л', 'л'),
-        choice('И', 'и'),
-      ),
+      /(Если)/i,
       /(if)/i
     ),
 
     _then_keyword: $ => choice(
-      seq(
-        choice('Т', 'т'),
-        choice('О', 'о'),
-        choice('Г', 'г'),
-        choice('Д', 'д'),
-        choice('А', 'а'),
-      ),
+      /(Тогда)/i,
       /(then)/i
     ),
 
     _elsif_keyword: $ => choice(
-      seq(
-        choice('И', 'и'),        
-        choice('Н', 'н'),
-        choice('А', 'а'),
-        choice('Ч', 'ч'),
-        choice('Е', 'е'),
-        choice('Е', 'е'),
-        choice('С', 'с'),
-        choice('Л', 'л'),
-        choice('И', 'и'),
-      ),
+      /(ИначеЕсли)/i,
       /(elsif)/i
     ),
 
     _else_keyword: $ => choice(
-      seq(
-        choice('И', 'и'),        
-        choice('Н', 'н'),
-        choice('А', 'а'),
-        choice('Ч', 'ч'),
-        choice('Е', 'е'),
-      ),
+      /(Иначе)/i,
       /(else)/i
     ),
 
     _endif_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('О', 'о'),
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-        choice('Ц', 'ц'),
-        choice('Е', 'е'),
-        choice('С', 'с'),
-        choice('Л', 'л'),
-        choice('И', 'и'),
-      ),
+      /(КонецЕсли)/i,
       /(endif)/i
     ),
 
     _for_keyword: $ => choice(
-      seq(
-        choice('Д', 'д'),        
-        choice('Л', 'л'),
-        choice('Я', 'я'),
-      ),
+      /(Для)/i,
       /(for)/i
     ),
 
     _each_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('А', 'а'),
-        choice('Ж', 'ж'),
-        choice('Д', 'д'),        
-        choice('О', 'о'),
-        choice('Г', 'г'),
-        choice('О', 'о'),        
-      ),
+      /(Каждого)/i,
       /(each)/i
     ),
 
     _in_keyword: $ => choice(
-      seq(
-        choice('И', 'и'),        
-        choice('З', 'з'),       
-      ),
+      /(Из)/i,
       /(in)/i
     ),
 
     _to_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),        
-        choice('О', 'о'),       
-      ),
+      /(По)/i,
       /(to)/i
     ),
 
     _while_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),        
-        choice('О', 'о'), 
-        choice('К', 'к'),        
-        choice('А', 'а'),        
-      ),
+      /(Пока)/i,
       /(while)/i
     ),
 
     _do_keyword: $ => choice(
-      seq(
-        choice('Ц', 'ц'),        
-        choice('И', 'и'), 
-        choice('К', 'к'),        
-        choice('Л', 'л'),        
-      ),
+      /(Цикл)/i,
       /(do)/i
     ),
 
     _enddo_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('О', 'о'),
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-        choice('Ц', 'ц'),        
-        choice('Ц', 'ц'),        
-        choice('И', 'и'), 
-        choice('К', 'к'),        
-        choice('Л', 'л'), 
-        choice('А', 'а'),                
-      ),
+      /(КонецЦикла)/i,
       /(enddo)/i
     ),
 
     _procedure_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),        
-        choice('Р', 'р'),
-        choice('О', 'о'),
-        choice('Ц', 'ц'),
-        choice('Е', 'е'),        
-        choice('Д', 'д'),        
-        choice('У', 'у'), 
-        choice('Р', 'р'),        
-        choice('А', 'а'),                
-      ),
+      /(Процедура)/i,
       /(procedure)/i
     ),
 
     _function_keyword: $ => choice(
-      seq(
-        choice('Ф', 'ф'),        
-        choice('У', 'у'),
-        choice('Н', 'н'),
-        choice('К', 'к'),
-        choice('Ц', 'ц'),        
-        choice('И', 'и'),        
-        choice('Я', 'я'),               
-      ),
+      /(Функция)/i,
       /(function)/i
     ),
 
     _endprocedure_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('О', 'о'),
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-        choice('Ц', 'ц'),
-        choice('П', 'п'),        
-        choice('Р', 'р'),
-        choice('О', 'о'),
-        choice('Ц', 'ц'),
-        choice('Е', 'е'),        
-        choice('Д', 'д'),        
-        choice('У', 'у'), 
-        choice('Р', 'р'),        
-        choice('Ы', 'ы'),                
-      ),
+      /(КонецПроцедуры)/i,
       /(endprocedure)/i
     ),
 
     _endfunction_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('О', 'о'),
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-        choice('Ц', 'ц'),
-        choice('Ф', 'ф'),        
-        choice('У', 'у'),
-        choice('Н', 'н'),
-        choice('К', 'к'),
-        choice('Ц', 'ц'),        
-        choice('И', 'и'),        
-        choice('И', 'и'),              
-      ),
+      /(КонецФункции)/i,
       /(endfunction)/i
     ),
 
     _var_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),
-        choice('Е', 'е'),
-        choice('Р', 'р'),
-        choice('Е', 'е'),
-        choice('М', 'м'),
-      ),
-      /(var)/i
+      /Перем/iu,
+      /var/i
     ),
 
     _goto_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),
-        choice('Е', 'е'),
-        choice('Р', 'р'),
-        choice('Е', 'е'),
-        choice('Й', 'й'),
-        choice('Т', 'т'),
-        choice('И', 'и'),
-      ),
+      /(Перейти)/i,
       /(goto)/i
     ),
 
     _return_keyword: $ => choice(
-      seq(
-        choice('В', 'в'),
-        choice('О', 'о'),
-        choice('З', 'з'),
-        choice('В', 'в'),
-        choice('Р', 'р'),
-        choice('А', 'а'),
-        choice('Т', 'т'),
-      ),
+      /(Возврат)/i,
       /(return)/i
     ),
 
     _continue_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),
-        choice('Р', 'р'),
-        choice('О', 'о'),
-        choice('Д', 'д'),
-        choice('О', 'о'),
-        choice('Л', 'л'),
-        choice('Ж', 'ж'),
-        choice('И', 'и'),
-        choice('Т', 'т'),
-        choice('Ь', 'ь'),
-      ),
+      /(Продолжить)/i,
       /(continue)/i
     ),
 
     _break_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),
-        choice('Р', 'р'),
-        choice('Е', 'е'),
-        choice('Р', 'р'),
-        choice('В', 'в'),
-        choice('А', 'а'),
-        choice('Т', 'т'),
-        choice('Ь', 'ь'),
-      ),
+      /(Прервать)/i,
       /(break)/i
     ),
 
     _and_keyword: $ => choice(
-      choice('И', 'и'),
+      /(И)/i,
       /(and)/i
     ),
 
     _or_keyword: $ => choice(
-      seq(
-        choice('И', 'и'),
-        choice('Л', 'л'),
-        choice('И', 'и'),
-      ),
+      /(Или)/i,
       /(or)/i
     ),
 
     _not_keyword: $ => choice(
-      seq(
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-      ),
+      /(Не)/i,
       /(not)/i
     ),
 
     _try_keyword: $ => choice(
-      seq(
-        choice('П', 'п'),
-        choice('О', 'о'),
-        choice('П', 'п'),
-        choice('Ы', 'ы'),
-        choice('Т', 'т'),
-        choice('К', 'к'),
-        choice('А', 'а'),      
-      ),
+      /(Попытка)/i,
       /(try)/i
     ),
 
     _except_keyword: $ => choice(
-      seq(
-        choice('И', 'и'),
-        choice('С', 'с'),
-        choice('К', 'к'),
-        choice('Л', 'л'),
-        choice('Ю', 'ю'),
-        choice('Ч', 'ч'),
-        choice('Е', 'е'),
-        choice('Н', 'н'),
-        choice('И', 'и'),
-        choice('Е', 'е'),
-      ),
+      /(Исключение)/i,
       /(except)/i
     ),
 
     _raise_keyword: $ => choice(
-      seq(
-        choice('В', 'в'),
-        choice('Ы', 'ы'),
-        choice('З', 'з'),
-        choice('В', 'в'),
-        choice('А', 'а'),
-        choice('Т', 'т'),
-        choice('Ь', 'ь'),
-        choice('И', 'и'),
-        choice('С', 'с'),
-        choice('К', 'к'),
-        choice('Л', 'л'),
-        choice('Ю', 'ю'),
-        choice('Ч', 'ч'),
-        choice('Е', 'е'),
-        choice('Н', 'н'),
-        choice('И', 'и'),
-        choice('Е', 'е'),
-      ),
+      /(ВызватьИсключение)/i,
       /(raise)/i
     ),
 
     _endtry_keyword: $ => choice(
-      seq(
-        choice('К', 'к'),        
-        choice('О', 'о'),
-        choice('Н', 'н'),
-        choice('Е', 'е'),
-        choice('Ц', 'ц'),
-        choice('П', 'п'),
-        choice('О', 'о'),
-        choice('П', 'п'),
-        choice('Ы', 'ы'),
-        choice('Т', 'т'),
-        choice('К', 'к'),
-        choice('И', 'и'),   
-      ),
+      /(КонецПопытки)/i,
       /(endtry)/i
     ),
 
     _new_keyword: $ => choice(
-      seq(
-        choice('Н', 'н'),        
-        choice('О', 'о'),
-        choice('В', 'в'),
-        choice('Ы', 'ы'),
-        choice('Й', 'й'), 
-      ),
+      /(Новый)/i,
       /(new)/i
     ),
 
     _execute_keyword: $ => choice(
-      seq(
-        choice('В', 'в'),        
-        choice('Ы', 'ы'),
-        choice('П', 'п'),
-        choice('О', 'о'),
-        choice('Л', 'л'), 
-        choice('Н', 'н'),
-        choice('И', 'и'),
-        choice('Т', 'т'),
-        choice('Ь', 'ь'), 
-      ),
+      /(Выполнить)/i,
       /(execute)/i
     ),
 
     val_keyword: $ => choice(
-      seq(
-        choice('З', 'з'),        
-        choice('Н', 'н'),
-        choice('А', 'а'),
-        choice('Ч', 'ч'),
-      ),
+      /(Знач)/i,
       /(val)/i
     ),
 
     true: $ => choice(
-      seq(
-        choice('И', 'и'),        
-        choice('С', 'с'),
-        choice('Т', 'т'),
-        choice('И', 'и'),
-        choice('Н', 'н'),
-        choice('А', 'а'),
-      ),
+      /(Истина)/i,
       /(true)/i
     ),
 
     false: $ => choice(
-      seq(
-        choice('Л', 'л'),        
-        choice('О', 'о'),
-        choice('Ж', 'ж'),
-        choice('Ь', 'ь'),
-      ),
+      /(Ложь)/i,
       /(false)/i
     ),
 
     null: $ => /(null)/i,
 
     undefined: $ => choice(
-      seq(
-        choice('Н', 'н'),        
-        choice('Е', 'е'),
-        choice('О', 'о'),
-        choice('П', 'п'),
-        choice('Р', 'р'),        
-        choice('Е', 'е'),
-        choice('Д', 'д'),
-        choice('Е', 'е'),
-        choice('Л', 'л'),        
-        choice('Е', 'е'),
-        choice('Н', 'н'),
-        choice('О', 'о'),                
-      ),
+      /(Неопределено)/i,
       /(undefine)/i
     ),
 
     export_modifier: $ => choice(
-      seq(
-        choice('Э', 'э'),        
-        choice('К', 'к'),
-        choice('С', 'с'),
-        choice('П', 'п'),
-        choice('О', 'о'),
-        choice('Р', 'р'),
-        choice('Т', 'т'),
-      ),
+      /(Экспорт)/i,
       /(export)/i
     ),
 
@@ -605,7 +325,6 @@ module.exports = grammar({
       $.true,
       $.false,
     ),
-
 
     _non_special_token: $ => choice(
       prec.right(repeat1(choice(...TOKEN_TREE_NON_SPECIAL_PUNCTUATION))),

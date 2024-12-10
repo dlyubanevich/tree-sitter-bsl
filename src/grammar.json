@@ -41,7 +41,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_perem"
+          "name": "_var_keyword"
         },
         {
           "type": "SEQ",
@@ -195,11 +195,14 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
+              "type": "CHOICE",
               "members": [
                 {
                   "type": "SYMBOL",
                   "name": "parameter"
+                },
+                {
+                  "type": "BLANK"
                 }
               ]
             },
@@ -213,11 +216,14 @@
                     "value": ","
                   },
                   {
-                    "type": "SEQ",
+                    "type": "CHOICE",
                     "members": [
                       {
                         "type": "SYMBOL",
                         "name": "parameter"
+                      },
+                      {
+                        "type": "BLANK"
                       }
                     ]
                   }
@@ -365,6 +371,10 @@
             {
               "type": "SYMBOL",
               "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "undefined"
             }
           ]
         },
@@ -399,7 +409,247 @@
       "type": "CHOICE",
       "members": []
     },
-    "_perem": {
+    "_if_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Если)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(if)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_then_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Тогда)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(then)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_elsif_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(ИначеЕсли)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(elsif)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_else_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Иначе)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(else)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_endif_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(КонецЕсли)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(endif)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_for_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Для)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(for)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_each_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Каждого)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(each)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_in_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Из)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(in)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_to_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(По)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(to)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_while_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Пока)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(while)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_do_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Цикл)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(do)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_enddo_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(КонецЦикла)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(enddo)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_procedure_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Процедура)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(procedure)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_function_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(Функция)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(function)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_endprocedure_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(КонецПроцедуры)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(endprocedure)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_endfunction_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "(КонецФункции)",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(endfunction)",
+          "flags": "i"
+        }
+      ]
+    },
+    "_var_keyword": {
       "type": "CHOICE",
       "members": [
         {
@@ -414,1802 +664,13 @@
         }
       ]
     },
-    "_if_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(if)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_then_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Г"
-                },
-                {
-                  "type": "STRING",
-                  "value": "г"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(then)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_elsif_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ч"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ч"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(elsif)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_else_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ч"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ч"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(else)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_endif_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(endif)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_for_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Я"
-                },
-                {
-                  "type": "STRING",
-                  "value": "я"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(for)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_each_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ж"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ж"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Г"
-                },
-                {
-                  "type": "STRING",
-                  "value": "г"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(each)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_in_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "З"
-                },
-                {
-                  "type": "STRING",
-                  "value": "з"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(in)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_to_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(to)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_while_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(while)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_do_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(do)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_enddo_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(enddo)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_procedure_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "У"
-                },
-                {
-                  "type": "STRING",
-                  "value": "у"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(procedure)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_function_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ф"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ф"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "У"
-                },
-                {
-                  "type": "STRING",
-                  "value": "у"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Я"
-                },
-                {
-                  "type": "STRING",
-                  "value": "я"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(function)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_endprocedure_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "У"
-                },
-                {
-                  "type": "STRING",
-                  "value": "у"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(endprocedure)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_endfunction_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ф"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ф"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "У"
-                },
-                {
-                  "type": "STRING",
-                  "value": "у"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(endfunction)",
-          "flags": "i"
-        }
-      ]
-    },
-    "_var_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "М"
-                },
-                {
-                  "type": "STRING",
-                  "value": "м"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "PATTERN",
-          "value": "(var)",
-          "flags": "i"
-        }
-      ]
-    },
     "_goto_keyword": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Й"
-                },
-                {
-                  "type": "STRING",
-                  "value": "й"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Перейти)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2222,100 +683,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "З"
-                },
-                {
-                  "type": "STRING",
-                  "value": "з"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Возврат)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2328,139 +698,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ж"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ж"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ь"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ь"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Продолжить)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2473,113 +713,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ь"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ь"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Прервать)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2592,17 +728,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "И"
-            },
-            {
-              "type": "STRING",
-              "value": "и"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(И)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2615,48 +743,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Или)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2669,35 +758,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Не)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2710,100 +773,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Попытка)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2816,139 +788,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ю"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ю"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ч"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ч"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Исключение)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -2961,230 +803,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "З"
-                },
-                {
-                  "type": "STRING",
-                  "value": "з"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ь"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ь"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ю"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ю"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ч"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ч"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(ВызватьИсключение)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3197,165 +818,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ц"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ц"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(КонецПопытки)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3368,74 +833,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Й"
-                },
-                {
-                  "type": "STRING",
-                  "value": "й"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Новый)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3448,126 +848,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "В"
-                },
-                {
-                  "type": "STRING",
-                  "value": "в"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ы"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ы"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ь"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ь"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Выполнить)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3580,61 +863,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "З"
-                },
-                {
-                  "type": "STRING",
-                  "value": "з"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ч"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ч"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Знач)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3647,87 +878,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "И"
-                },
-                {
-                  "type": "STRING",
-                  "value": "и"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "А"
-                },
-                {
-                  "type": "STRING",
-                  "value": "а"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Истина)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3740,61 +893,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ж"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ж"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Ь"
-                },
-                {
-                  "type": "STRING",
-                  "value": "ь"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Ложь)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3812,165 +913,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Д"
-                },
-                {
-                  "type": "STRING",
-                  "value": "д"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Л"
-                },
-                {
-                  "type": "STRING",
-                  "value": "л"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Е"
-                },
-                {
-                  "type": "STRING",
-                  "value": "е"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Н"
-                },
-                {
-                  "type": "STRING",
-                  "value": "н"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Неопределено)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",
@@ -3983,100 +928,9 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Э"
-                },
-                {
-                  "type": "STRING",
-                  "value": "э"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "К"
-                },
-                {
-                  "type": "STRING",
-                  "value": "к"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "С"
-                },
-                {
-                  "type": "STRING",
-                  "value": "с"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "П"
-                },
-                {
-                  "type": "STRING",
-                  "value": "п"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "О"
-                },
-                {
-                  "type": "STRING",
-                  "value": "о"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Р"
-                },
-                {
-                  "type": "STRING",
-                  "value": "р"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "Т"
-                },
-                {
-                  "type": "STRING",
-                  "value": "т"
-                }
-              ]
-            }
-          ]
+          "type": "PATTERN",
+          "value": "(Экспорт)",
+          "flags": "i"
         },
         {
           "type": "PATTERN",

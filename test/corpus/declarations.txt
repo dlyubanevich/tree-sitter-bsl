@@ -41,8 +41,84 @@ Procedure Definition
 КонецПроцедуры
 
 Процедура ИмяПроцедуры(ИмяПараметра, Знач ИмяПараметра2, ИмяПараметра3 = Неопределено) Экспорт
-    Возврат
+    Возврат;
 КонецПроцедуры
 
+--------------------------------------------------------------------------------
+
+(source_file
+    (procedure_definition
+        (identifier)
+        (parameters))
+    (procedure_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier)))
+        (export_modifier)
+        (body
+            (return_statement)))      
+    (procedure_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier))
+            (parameter
+                (val_keyword)
+                (identifier))
+            (parameter
+                (identifier)
+                (def_value
+                    (undefined))))
+        (export_modifier)
+        (body
+            (return_statement)))
+)
+
+================================================================================
+Function Definition
+================================================================================
+
+Функция ИмяФункции()
+
+КонецФункции
+
+Функция ИмяФункции(ИмяПараметра) Экспорт
+    Возврат;
+КонецФункции
+
+Функция ИмяФункции(ИмяПараметра, Знач ИмяПараметра2, ИмяПараметра3 = Неопределено) Экспорт
+    Возврат Неопределено;
+КонецФункции
 
 --------------------------------------------------------------------------------
+
+(source_file
+    (function_definition
+        (identifier)
+        (parameters))
+    (function_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier)))
+        (export_modifier)
+        (body
+            (return_statement)))      
+    (function_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier))
+            (parameter
+                (val_keyword)
+                (identifier))
+            (parameter
+                (identifier)
+                (def_value
+                    (undefined))))
+        (export_modifier)
+        (body
+            (return_statement
+                (undefined))))
+)

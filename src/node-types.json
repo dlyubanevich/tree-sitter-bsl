@@ -145,7 +145,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "parameter",
@@ -202,6 +202,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "undefined",
           "named": true
         }
       ]
@@ -309,189 +313,5 @@
   {
     "type": "number",
     "named": true
-  },
-  {
-    "type": "А",
-    "named": false
-  },
-  {
-    "type": "В",
-    "named": false
-  },
-  {
-    "type": "Д",
-    "named": false
-  },
-  {
-    "type": "Е",
-    "named": false
-  },
-  {
-    "type": "Ж",
-    "named": false
-  },
-  {
-    "type": "З",
-    "named": false
-  },
-  {
-    "type": "И",
-    "named": false
-  },
-  {
-    "type": "К",
-    "named": false
-  },
-  {
-    "type": "Л",
-    "named": false
-  },
-  {
-    "type": "Н",
-    "named": false
-  },
-  {
-    "type": "О",
-    "named": false
-  },
-  {
-    "type": "П",
-    "named": false
-  },
-  {
-    "type": "Р",
-    "named": false
-  },
-  {
-    "type": "С",
-    "named": false
-  },
-  {
-    "type": "Т",
-    "named": false
-  },
-  {
-    "type": "У",
-    "named": false
-  },
-  {
-    "type": "Ф",
-    "named": false
-  },
-  {
-    "type": "Ц",
-    "named": false
-  },
-  {
-    "type": "Ч",
-    "named": false
-  },
-  {
-    "type": "Ы",
-    "named": false
-  },
-  {
-    "type": "Ь",
-    "named": false
-  },
-  {
-    "type": "Э",
-    "named": false
-  },
-  {
-    "type": "Я",
-    "named": false
-  },
-  {
-    "type": "а",
-    "named": false
-  },
-  {
-    "type": "в",
-    "named": false
-  },
-  {
-    "type": "д",
-    "named": false
-  },
-  {
-    "type": "е",
-    "named": false
-  },
-  {
-    "type": "ж",
-    "named": false
-  },
-  {
-    "type": "з",
-    "named": false
-  },
-  {
-    "type": "и",
-    "named": false
-  },
-  {
-    "type": "к",
-    "named": false
-  },
-  {
-    "type": "л",
-    "named": false
-  },
-  {
-    "type": "н",
-    "named": false
-  },
-  {
-    "type": "о",
-    "named": false
-  },
-  {
-    "type": "п",
-    "named": false
-  },
-  {
-    "type": "р",
-    "named": false
-  },
-  {
-    "type": "с",
-    "named": false
-  },
-  {
-    "type": "т",
-    "named": false
-  },
-  {
-    "type": "у",
-    "named": false
-  },
-  {
-    "type": "ф",
-    "named": false
-  },
-  {
-    "type": "ц",
-    "named": false
-  },
-  {
-    "type": "ч",
-    "named": false
-  },
-  {
-    "type": "ы",
-    "named": false
-  },
-  {
-    "type": "ь",
-    "named": false
-  },
-  {
-    "type": "э",
-    "named": false
-  },
-  {
-    "type": "я",
-    "named": false
   }
 ]
