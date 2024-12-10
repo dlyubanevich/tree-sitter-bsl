@@ -1,0 +1,124 @@
+================================================================================
+Variables Definition
+================================================================================
+
+Перем ИмяПеременной1;
+
+// Пояснительный комментарий к переменной
+var ИмяПеременной2;
+
+VaR ИмяПеременной_2, _ИмяПеременной3 Экспорт;
+
+Перем VarName4; // Некоторый комментарий к переменной
+
+--------------------------------------------------------------------------------
+
+(source_file
+    (var_definition
+        (identifier))
+    (line_comment)    
+    (var_definition
+        (identifier))
+    (var_definition
+        (identifier)
+        (identifier)
+        (export_modifier))
+    (var_definition
+        (identifier))
+    (line_comment)    
+)
+
+================================================================================
+Procedure Definition
+================================================================================
+
+Процедура ИмяПроцедуры()
+
+КонецПроцедуры
+
+Процедура ИмяПроцедуры(ИмяПараметра) Экспорт
+    Возврат;
+КонецПроцедуры
+
+Процедура ИмяПроцедуры(ИмяПараметра, Знач ИмяПараметра2, ИмяПараметра3 = Неопределено) Экспорт
+    Возврат;
+КонецПроцедуры
+
+--------------------------------------------------------------------------------
+
+(source_file
+    (procedure_definition
+        (identifier)
+        (parameters))
+    (procedure_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier)))
+        (export_modifier)
+        (body
+            (return_statement)))      
+    (procedure_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier))
+            (parameter
+                (val_keyword)
+                (identifier))
+            (parameter
+                (identifier)
+                (def_value
+                    (undefined))))
+        (export_modifier)
+        (body
+            (return_statement)))
+)
+
+================================================================================
+Function Definition
+================================================================================
+
+Функция ИмяФункции()
+
+КонецФункции
+
+Функция ИмяФункции(ИмяПараметра) Экспорт
+    Возврат;
+КонецФункции
+
+Функция ИмяФункции(ИмяПараметра, Знач ИмяПараметра2, ИмяПараметра3 = Неопределено) Экспорт
+    Возврат Неопределено;
+КонецФункции
+
+--------------------------------------------------------------------------------
+
+(source_file
+    (function_definition
+        (identifier)
+        (parameters))
+    (function_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier)))
+        (export_modifier)
+        (body
+            (return_statement)))      
+    (function_definition    
+        (identifier)
+        (parameters
+            (parameter
+                (identifier))
+            (parameter
+                (val_keyword)
+                (identifier))
+            (parameter
+                (identifier)
+                (def_value
+                    (undefined))))
+        (export_modifier)
+        (body
+            (return_statement
+                (undefined))))
+)

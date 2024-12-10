@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "bsl",
+      "camelcase": "Bsl",
+      "scope": "source.bsl",
+      "file-types": [
+        ".bsl"
+      ],
+      "injection-regex": "^bsl$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree sitter parser for 1C (BSL) language",
+    "authors": [
+      {
+        "name": "Dmitrii Liubanevich",
+        "email": "dlyubanevich@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/dlyubanevich/tree-sitter-bsl"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
