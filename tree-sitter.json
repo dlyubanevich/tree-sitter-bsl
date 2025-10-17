@@ -4,9 +4,8 @@
       "name": "bsl",
       "camelcase": "Bsl",
       "scope": "source.bsl",
-      "file-types": [
-        ".bsl"
-      ],
+      "file-types": [".bsl"],
+      "highlights": ["queries/highlights.scm"],
       "injection-regex": "^bsl$"
     }
   ],
